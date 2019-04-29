@@ -1,5 +1,5 @@
 <?php
-namespace
+
 require "conf.inc.php";
 
 function myAutoloader($class)
