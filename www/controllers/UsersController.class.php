@@ -1,13 +1,16 @@
 <?php
 
+declare(strict_types=1);
+use Projet\Models\Users\Users;
+
 class UsersController
 {
-    public function defaultAction()
+    public function defaultAction(): void
     {
         echo 'users default';
     }
 
-    public function addAction()
+    public function addAction(): void
     {
         $user = new Users();
         $form = $user->getRegisterForm();
@@ -16,7 +19,7 @@ class UsersController
         $v->assign('form', $form);
     }
 
-    public function saveAction()
+    public function saveAction(): void
     {
         $user = new Users();
         $form = $user->getRegisterForm();
@@ -39,7 +42,7 @@ class UsersController
         $v->assign('form', $form);
     }
 
-    public function loginAction()
+    public function loginAction(): void
     {
         $user = new Users();
         $form = $user->getLoginForm();
@@ -58,7 +61,7 @@ class UsersController
         $v->assign('form', $form);
     }
 
-    public function forgetPasswordAction()
+    public function forgetPasswordAction(): void
     {
         $v = new View('forgetPasswordUser', 'front');
     }
