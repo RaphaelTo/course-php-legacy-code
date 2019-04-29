@@ -1,5 +1,7 @@
 <?php
 
+use Projet\Core\View;
+
 class PagesController
 {
     public function defaultAction()
