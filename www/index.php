@@ -6,8 +6,8 @@ require 'conf.inc.php';
 
 function myAutoloader($class)
 {
-    $renomm = str_replace('Projet\\','',$class);
-    $renomm2= str_replace('\\','/',$renomm);
+    $renomm = str_replace('Projet\\', '', $class);
+    $renomm2 = str_replace('\\', '/', $renomm);
     $classPath = lcfirst($renomm2).'.class.php';
     $classModel = lcfirst($renomm2).'.class.php';
     if (file_exists($classPath)) {

@@ -1,6 +1,7 @@
 <?php
 
 namespace Projet\Models\Users;
+
 use Projet\Core\BaseSQL;
 
 class Users extends BaseSQL
