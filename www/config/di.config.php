@@ -20,9 +20,10 @@ return [
         //return new Users($driver,$host,$name,$user,$password);
     },
     UsersController::class => function($container){
-        //var_dump($container);
+        //var_dump($container['Projet\Controller\UsersController']);
         $userModel = $container[ConnectionInterface::class]($container);
-        var_dump($container);
+        //var_dump($userModel);
+
         return new UsersController($userModel);
     },
     PagesController::class => function($container){

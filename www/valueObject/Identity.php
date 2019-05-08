@@ -4,8 +4,8 @@ namespace Projet\ValueObject;
 
 class Identity
 {
-    private $firstname;
-    private $lastname;
+    public $firstname;
+    public $lastname;
 
     public function __construct(string $firstname, string $lastname)
     {

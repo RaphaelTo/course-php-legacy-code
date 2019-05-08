@@ -3,12 +3,14 @@ declare(strict_types=1);
 
 namespace Projet\Controller;
 
+use Projet\ValueObject\Identity;
+use Projet\ValueObject\Account;
 use Projet\Models\Users;
+use Projet\Form\Form;
 use Projet\Repository\ConnectionRepository;
 use Projet\Core\View;
 use Projet\Core\Validator;
-use Projet\ValueObject\Account;
-use Projet\ValueObject\Identity;
+
 
 class UsersController
 {
@@ -19,8 +21,8 @@ class UsersController
 
     public function addAction(): void
     {
-        $user = new Users();
-        $form = $user->getRegisterForm();
+        $formulaire = new Form();
+        $form = $formulaire->getRegisterForm();
 
         $v = new View('addUser', 'front');
         $v->assign('form', $form);
@@ -28,26 +30,20 @@ class UsersController
 
     public function saveAction(): void
     {
-        $user = new Users();
-        $form = $user->getRegisterForm();
+        $formulaire = new Form();
+
+        $form = $formulaire->getRegisterForm();
         $method = strtoupper($form['config']['method']);
         $data = $GLOBALS['_'.$method];
 
         if ($_SERVER['REQUEST_METHOD'] == $method && !empty($data)) {
             $validator = new Validator($form, $data);
             $form['errors'] = $validator->errors;
-
             if (empty($errors)) {
                 $connection = new ConnectionRepository();
-                $user->setIdentity(new Identity($data['firstname'],$data['lastname']));
-                //$identity = new Identity($data['firstname'],$data['lastname']);
-                //var_dump(new Identity($data['firstname'],$data['lastname']));
-                //$account = new Account($data['email'],$data['pwd']);
-                //var_dump($identity);
-                //$user->setIdentity($identity);
-                //$user->setAccount($account);
-                $connection->save();
-
+                $user= new Users(new Identity($data['firstname'], $data['lastname']),new Account($data['email'], $data['pwd']));
+                //var_dump($user);
+                $connection->save($user);
             }
         }
         $v = new View('addUser', 'front');
@@ -56,9 +52,8 @@ class UsersController
 
     public function loginAction(): void
     {
-        $user = new Users();
-        $form = $user->getLoginForm();
-
+        $formulaire = new Form();
+        $form = $formulaire->getLoginForm();
         $method = strtoupper($form['config']['method']);
         $data = $GLOBALS['_'.$method];
         if ($_SERVER['REQUEST_METHOD'] == $method && !empty($data)) {

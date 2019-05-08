@@ -3,5 +3,5 @@
 namespace Projet\Repository;
 
 interface ConnectionInterface{
-    public function save(): void;
+    public function save(object $object): void;
 }

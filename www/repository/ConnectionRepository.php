@@ -20,11 +20,12 @@ class ConnectionRepository implements ConnectionInterface
     }
 
 
-    public function save(): void
+    public function save(object $object): void
     {
-        $dataObject = get_object_vars($this);
+        $dataObject = get_object_vars($object);
+        var_dump($dataObject);
         $dataChild = array_diff_key($dataObject, get_class_vars(get_class()));
-
+        //var_dump($dataObject);
         if (is_null($dataChild['id'])) {
             $sql = 'INSERT INTO '.$this->table.' ( '.
                 implode(',', array_keys($dataChild)).') VALUES ( :'.

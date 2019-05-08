@@ -4,12 +4,12 @@ namespace Projet\ValueObject;
 
 class Account{
 
-    private $email;
-    private $pwd;
-    private $role;
-    private $status;
+    public $email;
+    public $pwd;
+    public $role;
+    public $status;
 
-    public function __construct(string $email = null, string $pwd = null)
+    public function __construct(string $email, string $pwd)
     {
         $this->email=strtolower(trim($email));
         $this->pwd= password_hash($pwd, PASSWORD_DEFAULT);

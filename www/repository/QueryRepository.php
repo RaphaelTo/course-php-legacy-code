@@ -27,9 +27,9 @@ class QueryRepository implements QueryInterface
         $query = $this->pdo->prepare($sql);
 
         if ($object) {
-            $query->setFetchMode(PDO::FETCH_INTO, $this);
+            $query->setFetchMode(\PDO::FETCH_INTO, $this);
         } else {
-            $query->setFetchMode(PDO::FETCH_ASSOC);
+            $query->setFetchMode(\PDO::FETCH_ASSOC);
         }
 
         $query->execute($where);
