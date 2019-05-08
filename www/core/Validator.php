@@ -58,7 +58,7 @@ class Validator
         return strlen(trim($string)) <= $length;
     }
 
-    public static function checkEmail(string $string): bool
+    public static function checkEmail(string $string): string
     {
         return filter_var(trim($string), FILTER_VALIDATE_EMAIL);
     }

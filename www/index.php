@@ -8,8 +8,8 @@ function myAutoloader($class)
 {
     $renomm = str_replace('Projet\\', '', $class);
     $renomm2 = str_replace('\\', '/', $renomm);
-    $classPath = lcfirst($renomm2).'.class.php';
-    $classModel = lcfirst($renomm2).'.class.php';
+    $classPath = lcfirst($renomm2).'.php';
+    $classModel = lcfirst($renomm2).'.php';
     if (file_exists($classPath)) {
         include $classPath;
     } elseif (file_exists($classModel)) {
@@ -25,15 +25,25 @@ $slug = explode('?', $_SERVER['REQUEST_URI'])[0];
 $routes = Routing::getRoute($slug);
 extract($routes);
 
+
+//var_dump($container);
+$container = require  'config/di.config.php';
+$container['config'] = require 'config/global.php';
+//var_dump($container);
+
+//var_dump($container);
+//var_dump($cPath);
+
 // Vérifie l'existence du fichier et de la classe pour charger le controlleur
 if (file_exists($cPath)) {
     include $cPath;
-    if (class_exists($c)) {
+    if (class_exists('\\Projet\\Controller\\'.$c)) {
         //instancier dynamiquement le controller
-        $cObject = new $c();
+        $cObject = $container['Projet\Controller\\'. $c]($container);
         //vérifier que la méthode (l'action) existe
         if (method_exists($cObject, $a)) {
             //appel dynamique de la méthode
+            //var_dump($cObject);
             $cObject->$a();
         } else {
             die('La methode '.$a." n'existe pas");

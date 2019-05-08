@@ -1,6 +1,8 @@
 <?php
-
 declare(strict_types=1);
+
+namespace Projet\Controller;
+
 use Projet\Core\View;
 
 class PagesController

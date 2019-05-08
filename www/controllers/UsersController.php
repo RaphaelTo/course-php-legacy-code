@@ -1,7 +1,14 @@
 <?php
-
 declare(strict_types=1);
-use Projet\Models\Users\Users;
+
+namespace Projet\Controller;
+
+use Projet\Models\Users;
+use Projet\Repository\ConnectionRepository;
+use Projet\Core\View;
+use Projet\Core\Validator;
+use Projet\ValueObject\Account;
+use Projet\ValueObject\Identity;
 
 class UsersController
 {
@@ -31,11 +38,16 @@ class UsersController
             $form['errors'] = $validator->errors;
 
             if (empty($errors)) {
-                $user->setFirstname($data['firstname']);
-                $user->setLastname($data['lastname']);
-                $user->setEmail($data['email']);
-                $user->setPwd($data['pwd']);
-                $user->save();
+                $connection = new ConnectionRepository();
+                $user->setIdentity(new Identity($data['firstname'],$data['lastname']));
+                //$identity = new Identity($data['firstname'],$data['lastname']);
+                //var_dump(new Identity($data['firstname'],$data['lastname']));
+                //$account = new Account($data['email'],$data['pwd']);
+                //var_dump($identity);
+                //$user->setIdentity($identity);
+                //$user->setAccount($account);
+                $connection->save();
+
             }
         }
         $v = new View('addUser', 'front');
