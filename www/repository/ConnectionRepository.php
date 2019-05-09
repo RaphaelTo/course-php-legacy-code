@@ -23,16 +23,41 @@ class ConnectionRepository implements ConnectionInterface
     public function save(object $object): void
     {
         $dataObject = get_object_vars($object);
-        var_dump($dataObject);
-        $dataChild = array_diff_key($dataObject, get_class_vars(get_class()));
-        //var_dump($dataObject);
-        if (is_null($dataChild['id'])) {
-            $sql = 'INSERT INTO '.$this->table.' ( '.
-                implode(',', array_keys($dataChild)).') VALUES ( :'.
-                implode(',:', array_keys($dataChild)).')';
 
+        $arrayKey[] = ['id'=> $dataObject['id'] ];
+        $arrayValue= [];
+
+        foreach ($dataObject['identity'] as $key => $item) {
+            $arrayKey[]=$key;
+            $arrayValue[]= $item;
+        }
+        foreach ($dataObject['account'] as $key => $item){
+            $arrayKey[]= $key;
+            $arrayValue[]=$item;
+        }
+
+        $dataChild = array_diff_key($arrayKey, get_class_vars(get_class()));
+        //var_dump($dataChild);
+        //var_dump($arrayValue);
+        if (is_null($dataChild['id'])) {
+            $dataChild= array_slice($dataChild,1);
+            //$dataChild= array_slice($dataChild,0,4);
+            //var_dump($dataChild);
+            $sql = 'INSERT INTO Users ( '.
+                implode(',', $dataChild).') VALUES ( :'.
+                implode(',:',$dataChild).')';
+            var_dump($sql);
             $query = $this->pdo->prepare($sql);
-            $query->execute($dataChild);
+            $arraypush =[
+                $dataChild[0] => $arrayValue[0],
+                $dataChild[1] => $arrayValue[1],
+                $dataChild[2] => $arrayValue[2],
+                $dataChild[3] => $arrayValue[3],
+                $dataChild[4] => 1,
+                $dataChild[5] => 0
+            ];
+            var_dump($arraypush);
+            $query->execute($arraypush);
         } else {
             $sqlUpdate = [];
             foreach ($dataChild as $key => $value) {
