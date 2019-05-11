@@ -23,7 +23,6 @@ class ConnectionRepository implements ConnectionInterface
     public function save(object $object): void
     {
         $dataObject = get_object_vars($object);
-
         $arrayKey[] = ['id'=> $dataObject['id'] ];
         $arrayValue= [];
 
@@ -37,27 +36,23 @@ class ConnectionRepository implements ConnectionInterface
         }
 
         $dataChild = array_diff_key($arrayKey, get_class_vars(get_class()));
-        //var_dump($dataChild);
-        //var_dump($arrayValue);
+
         if (is_null($dataChild['id'])) {
             $dataChild= array_slice($dataChild,1);
-            //$dataChild= array_slice($dataChild,0,4);
-            //var_dump($dataChild);
             $sql = 'INSERT INTO Users ( '.
                 implode(',', $dataChild).') VALUES ( :'.
                 implode(',:',$dataChild).')';
-            var_dump($sql);
             $query = $this->pdo->prepare($sql);
             $arraypush =[
                 $dataChild[0] => $arrayValue[0],
                 $dataChild[1] => $arrayValue[1],
                 $dataChild[2] => $arrayValue[2],
                 $dataChild[3] => $arrayValue[3],
-                $dataChild[4] => 1,
-                $dataChild[5] => 0
+                $dataChild[4] => $arrayValue[4],
+                $dataChild[5] => $arrayValue[5]
             ];
-            var_dump($arraypush);
             $query->execute($arraypush);
+
         } else {
             $sqlUpdate = [];
             foreach ($dataChild as $key => $value) {
@@ -66,7 +61,6 @@ class ConnectionRepository implements ConnectionInterface
                 }
             }
             $sql = 'UPDATE '.$this->table.' SET '.implode(',', $sqlUpdate).' WHERE id=:id';
-
             $query = $this->pdo->prepare($sql);
             $query->execute($dataChild);
         }
