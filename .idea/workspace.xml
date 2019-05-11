@@ -7,21 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e177e297-2212-4d82-b123-5006e0980296" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/controllers/PagesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/controllers/PagesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/controllers/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/controllers/UsersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/core/Routing.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/core/Routing.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/core/Validator.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/core/Validator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/core/View.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/core/View.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/models/Users.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/models/Users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/repository/ConnectionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/repository/ConnectionRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/repository/QueryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/repository/QueryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/views/addUser.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/views/addUser.view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/views/loginUser.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/views/loginUser.view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/views/modals/form.mod.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/views/modals/form.mod.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/views/templates/back.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/views/templates/back.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/views/templates/front.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/views/templates/front.tpl.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,11 +35,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/repository/ConnectionRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="733">
+              <caret line="72" column="1" selection-start-line="72" selection-start-column="1" selection-end-line="72" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -83,7 +79,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/www/core/Routing.class.php" />
         <option value="$PROJECT_DIR$/www/core/Validator.class.php" />
         <option value="$PROJECT_DIR$/www/core/View.class.php" />
@@ -122,6 +117,7 @@
         <option value="$PROJECT_DIR$/www/core/View.php" />
         <option value="$PROJECT_DIR$/www/repository/QueryRepository.php" />
         <option value="$PROJECT_DIR$/www/repository/QueryInterface.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -136,7 +132,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -153,6 +148,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -197,18 +193,19 @@
       <workItem from="1557315487616" duration="19139000" />
       <workItem from="1557349934546" duration="5144000" />
       <workItem from="1557421256007" duration="6290000" />
-      <workItem from="1557578326368" duration="4621000" />
+      <workItem from="1557578326368" duration="4828000" />
+      <workItem from="1557583360826" duration="71000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81552000" />
+    <option name="totallyTimeSpent" value="81830000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="988" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4995015" visible="true" weight="0.17022412" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4995015" visible="true" weight="0.17182498" />
       <window_info id="Structure" order="1" sideWeight="0.50049853" side_tool="true" weight="0.21878335" />
       <window_info id="Favorites" order="2" sideWeight="0.50049853" side_tool="true" weight="0.21878335" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -221,7 +218,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32901296" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.47037914" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32109004" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32819906" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -273,13 +270,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/www/models/UsersInterface.php" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/public/scss/_cards.scss">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -525,8 +515,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/repository/ConnectionRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="733">
+          <caret line="72" column="1" selection-start-line="72" selection-start-column="1" selection-end-line="72" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
