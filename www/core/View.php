@@ -6,44 +6,41 @@ namespace Projet\Core;
 
 class View
 {
-    private $v;
-    private $t;
+    private $view;
+    private $template;
     private $data = [];
 
-    public function __construct(string $v, string $t = 'back')
+    public function __construct(string $view, string $template = 'back')
     {
-        $this->setView($v);
-        $this->setTemplate($t);
+        $this->setView($view);
+        $this->setTemplate($template);
     }
 
-    public function setView(string $v): void
+    public function setView(string $view): void
     {
-        $viewPath = 'views/'.$v.'.view.php';
-        if (file_exists($viewPath)) {
-            $this->v = $viewPath;
-        } else {
+        $viewPath = 'views/'.$view.'.view.php';
+        if (!file_exists($viewPath)) {
             die("Attention le fichier view n'existe pas ".$viewPath);
         }
+        $this->view = $viewPath;
     }
 
-    public function setTemplate(string $t): void
+    public function setTemplate(string $template): void
     {
-        $templatePath = 'views/templates/'.$t.'.tpl.php';
-        if (file_exists($templatePath)) {
-            $this->t = $templatePath;
-        } else {
+        $templatePath = 'views/templates/'.$template.'.tpl.php';
+        if (!file_exists($templatePath)) {
             die("Attention le fichier template n'existe pas ".$templatePath);
         }
+        $this->template = $templatePath;
     }
 
     public function addModal(string $modal, $config): void
     {
         $modalPath = 'views/modals/'.$modal.'.mod.php';
-        if (file_exists($modalPath)) {
-            include $modalPath;
-        } else {
+        if (!file_exists($modalPath)) {
             die("Attention le fichier modal n'existe pas ".$modalPath);
         }
+        include $modalPath;
     }
 
     /**
@@ -59,6 +56,6 @@ class View
     public function __destruct()
     {
         extract($this->data);
-        include $this->t;
+        include $this->template;
     }
 }

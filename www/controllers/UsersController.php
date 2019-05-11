@@ -24,8 +24,8 @@ class UsersController
         $formulaire = new Form();
         $form = $formulaire->getRegisterForm();
 
-        $v = new View('addUser', 'front');
-        $v->assign('form', $form);
+        $view = new View('addUser', 'front');
+        $view->assign('form', $form);
     }
 
     public function saveAction(): void
@@ -42,12 +42,11 @@ class UsersController
             if (empty($errors)) {
                 $connection = new ConnectionRepository();
                 $user= new Users(new Identity($data['firstname'], $data['lastname']),new Account($data['email'], $data['pwd']));
-                //var_dump($user);
                 $connection->save($user);
             }
         }
-        $v = new View('addUser', 'front');
-        $v->assign('form', $form);
+        $view = new View('addUser', 'front');
+        $view->assign('form', $form);
     }
 
     public function loginAction(): void
@@ -64,12 +63,12 @@ class UsersController
                 // TODO: connexion
             }
         }
-        $v = new View('loginUser', 'front');
-        $v->assign('form', $form);
+        $view = new View('loginUser', 'front');
+        $view->assign('form', $form);
     }
 
     public function forgetPasswordAction(): void
     {
-        $v = new View('forgetPasswordUser', 'front');
+        $view = new View('forgetPasswordUser', 'front');
     }
 }

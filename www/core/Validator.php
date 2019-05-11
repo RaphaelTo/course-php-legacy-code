@@ -17,28 +17,23 @@ class Validator
         foreach ($config['data'] as $name => $info) {
             if (!isset($data[$name])) {
                 die('Tentative : faille XSS');
-            } else {
-                if (($info['required'] ?? false) && !self::notEmpty($data[$name])) {
+            }
+            if (($info['required'] ?? false) && !self::notEmpty($data[$name])) {
+                $this->errors[] = $info['error'];
+            }
+            if (isset($info['minlength']) && !self::minLength($data[$name], $info['minlength'])) {
+                $this->errors[] = $info['error'];
+            }
+            if (isset($info['maxlength']) && !self::maxLength($data[$name], $info['maxlength'])) {
+                $this->errors[] = $info['error'];
+            }
+            if ('email' == $info['type'] && !self::checkEmail($data[$name])) {
+                $this->errors[] = $info['error'];
+            }
+            if (isset($info['confirm']) && $data[$name] != $data[$info['confirm']]) {
                     $this->errors[] = $info['error'];
-                }
-
-                if (isset($info['minlength']) && !self::minLength($data[$name], $info['minlength'])) {
+            } elseif ('password' == $info['type'] && !self::checkPassword($data[$name])) {
                     $this->errors[] = $info['error'];
-                }
-
-                if (isset($info['maxlength']) && !self::maxLength($data[$name], $info['maxlength'])) {
-                    $this->errors[] = $info['error'];
-                }
-
-                if ('email' == $info['type'] && !self::checkEmail($data[$name])) {
-                    $this->errors[] = $info['error'];
-                }
-
-                if (isset($info['confirm']) && $data[$name] != $data[$info['confirm']]) {
-                    $this->errors[] = $info['error'];
-                } elseif ('password' == $info['type'] && !self::checkPassword($data[$name])) {
-                    $this->errors[] = $info['error'];
-                }
             }
         }
     }
